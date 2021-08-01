@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Test one",
+    "sex": "M",
+    "age": 20,
+    "birthdate": "1995-02-05",
+    "hobby": "To fish"
+  },
+  {
+    "name": "Test two",
+    "sex": "F",
+    "age": 25,
+    "birthdate": "1990-01-20",
+    "hobby": "Makeup"
+  },
+  {
+    "name": "Test three",
+    "sex": "M",
+    "age": 30,
+    "birthdate": "1990-06-15",
+    "hobby": "Kart racing"
+  }
+]

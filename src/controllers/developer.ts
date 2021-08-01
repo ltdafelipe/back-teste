@@ -64,7 +64,8 @@ export default class Controller {
   public async update(req: Request, res: Response): Promise<any> {
     await DesenvolvedorModel.findByIdAndUpdate(
       { _id: req.params._id },
-      req.body
+      req.body,
+      { new: true }
     )
       .then((result) => {
         res.status(200).json(result);

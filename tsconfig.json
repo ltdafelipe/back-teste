@@ -1,10 +1,31 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+
+    "paths": {
+      "@/*": ["./*"]
+    },
+
+    "strictPropertyInitialization": false,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["jest", "node"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "lib": ["dom", "esnext"],
-    "module": "commonjs",
-    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "target": "es2018"
-  }
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./node_modules/*"]
 }

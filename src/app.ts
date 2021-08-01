@@ -19,10 +19,8 @@ class Server {
   }
 
   public listen(): void {
-    console.log('API ONLINE')
+    console.log("API ONLINE");
   }
-
-
 }
 
-export default () => new Server()
+export default () => new Server();
