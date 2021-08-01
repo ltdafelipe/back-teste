@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
 let db: any
 
-export function conectaBancoDados (): mongoose.Connection {
+export function BDConnection (): mongoose.Connection {
   if (!db) {
       mongoose.set('useUnifiedTopology', true)
-      db = mongoose.createConnection('mongodb+srv://teste:teste@cluster0.5dndk.mongodb.net/testeGazin?retryWrites=true&w=majority', {
+      db = mongoose.createConnection('mongodb://docker:docker@localhost:27017/developer-felipe?retryWrites=true&w=majority', {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useFindAndModify: false,
