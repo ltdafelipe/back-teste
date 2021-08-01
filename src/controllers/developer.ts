@@ -35,9 +35,9 @@ export default class Controller {
       });
   }
 
-  public async findId(req: Request, res: Response): Promise<any> {
-    DesenvolvedorModel.findById(req.params._id)
-      .then((result) => {
+  public async findId(req: Request, res: Response): Promise<Interface> {
+    return DesenvolvedorModel.findById(req.params._id)
+      .then((result: Interface): any => {
         return res.status(200).json(result);
       })
       .catch((err) => {
@@ -48,9 +48,9 @@ export default class Controller {
       });
   }
 
-  public async create(req: Request, res: Response): Promise<any> {
-    await DesenvolvedorModel.create(req.body)
-      .then((result) => {
+  public async create(req: Request, res: Response): Promise<Interface> {
+    return DesenvolvedorModel.create(req.body)
+      .then((result: Interface): any => {
         res.status(201).json(result);
       })
       .catch((err) => {
@@ -61,13 +61,13 @@ export default class Controller {
       });
   }
 
-  public async update(req: Request, res: Response): Promise<any> {
-    await DesenvolvedorModel.findByIdAndUpdate(
+  public async update(req: Request, res: Response): Promise<Interface> {
+    return DesenvolvedorModel.findByIdAndUpdate(
       { _id: req.params._id },
       req.body,
       { new: true }
     )
-      .then((result) => {
+      .then((result: Interface): any => {
         res.status(200).json(result);
       })
       .catch((err) => {
