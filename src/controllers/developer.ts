@@ -1,4 +1,4 @@
-import DesenvolvedorModel from "../models/developer";
+import { default as Model } from "../models/developer";
 import { default as Interface } from "../interfaces/developer";
 import { Request, Response } from "express";
 
@@ -13,10 +13,10 @@ export default class Controller {
       ? { name: { $regex: ".*" + req.query.search + ".*", $options: "i" } }
       : {};
 
-    let countTotal = await DesenvolvedorModel.countDocuments(search);
+    let countTotal = await Model.countDocuments(search);
     let countPages = Math.ceil(countTotal / options.limit);
 
-    return DesenvolvedorModel.find(search)
+    return Model.find(search)
       .sort({ name: 1 })
       .skip(options.page > 0 ? (options.page - 1) * options.limit : 0)
       .limit(options.limit)
@@ -36,7 +36,7 @@ export default class Controller {
   }
 
   public async findId(req: Request, res: Response): Promise<Interface> {
-    return DesenvolvedorModel.findById(req.params._id)
+    return Model.findById(req.params._id)
       .then((result: Interface): any => {
         return res.status(200).json(result);
       })
@@ -49,7 +49,7 @@ export default class Controller {
   }
 
   public async create(req: Request, res: Response): Promise<Interface> {
-    return DesenvolvedorModel.create(req.body)
+    return Model.create(req.body)
       .then((result: Interface): any => {
         res.status(201).json(result);
       })
@@ -62,11 +62,9 @@ export default class Controller {
   }
 
   public async update(req: Request, res: Response): Promise<Interface> {
-    return DesenvolvedorModel.findByIdAndUpdate(
-      { _id: req.params._id },
-      req.body,
-      { new: true }
-    )
+    return Model.findByIdAndUpdate({ _id: req.params._id }, req.body, {
+      new: true,
+    })
       .then((result: Interface): any => {
         res.status(200).json(result);
       })
@@ -79,7 +77,7 @@ export default class Controller {
   }
 
   public async delete(req: Request, res: Response): Promise<any> {
-    await DesenvolvedorModel.findByIdAndDelete(req.params._id)
+    await Model.findByIdAndDelete(req.params._id)
       .then(() => {
         res.status(204).json("Desenvolvedor excluído com sucesso!");
       })
