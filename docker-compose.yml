@@ -18,4 +18,4 @@ services:
       - MONGO_INITDB_DATABASE=${MONGO_DATABASE}
       - MONGO_DATA-DIR=/data/db
     volumes:
-      - /data/mongo/${APP_NAME}:/data/db:z
+      - /data/db
