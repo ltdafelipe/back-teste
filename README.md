@@ -9,6 +9,7 @@ Setup project:
 
 - npm install or yarn
 - docker-compose up
+- To view the tables in MongoDB Compass or your choice: mongodb://docker:docker@localhost:27017/developer-felipe?authSource=admin
 
 And to start:
 
