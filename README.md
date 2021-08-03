@@ -14,3 +14,6 @@ Setup project:
 And to start:
 
 - npm run dev or yarn dev
+
+Start test with JEST:
+- yarn test or npm run test
